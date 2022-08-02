@@ -1,7 +1,7 @@
 name: Build Wheels
 on:
   push:
-    branches: [main]
+    branches: [main, ci]
   create:
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
           make cython
 
       - name: Build
-        uses: pypa/cibuildwheel@v2.6.0
+        uses: pypa/cibuildwheel@v2.8.1
         env:
           CIBW_TEST_REQUIRES: "pytest"
           CIBW_TEST_COMMAND: "pytest {package}/test"
